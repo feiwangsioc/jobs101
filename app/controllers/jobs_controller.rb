@@ -47,6 +47,6 @@ before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destro
     
     private
     def job_parmas
-        params.require(:job).permit(:title, :description)
+        params.require(:job).permit(:title, :description, :wage_lower_bound, :wage_upper_bound, :contact_email)
     end 
 end
