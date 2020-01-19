@@ -2,6 +2,7 @@ class Admin::JobsController < ApplicationController
     
  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]   
  before_action :require_is_admin
+ layout "admin"
  
 
   
@@ -43,8 +44,23 @@ class Admin::JobsController < ApplicationController
   end 
   
   def destroy
-    @job = job.find(params[:id])
+    @job = Job.find(params[:id])
     @job.destroy
+    redirect_to admin_jobs_path
+  end
+  
+  def publish
+    @job = Job.find(params[:id])
+    @job.is_hidden = false
+    @job.save
+    redirect_to admin_jobs_path
+    
+  end
+
+  def hide
+    @job = Job.find(params[:id])
+    @job.is_hidden = true
+    @job.save
     redirect_to admin_jobs_path
   end
   
