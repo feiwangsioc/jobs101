@@ -8,3 +8,7 @@
 <p>Bio: <%= simple_format @user.profile.bio %></p>
 
 <b><%= link_to('修改个人资料', edit_user_profile_path) %></b>
+
+ <%= link_to "Tickets", user_tickets_path(@user), :class => "btn btn-default" %>
+ 
+ <%= link_to "New Ticket", new_user_ticket_path(@user), :class => "btn btn-primary" %>

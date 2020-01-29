@@ -11,5 +11,5 @@ class User < ApplicationRecord
   end
   
   has_one :profile
-  
+  has_many :tickets, :dependent => :destroy
 end

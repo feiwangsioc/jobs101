@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   
       resources :users do
         resource :profile, :controller => "user_profiles"
+        resources :tickets, :controller => "user_tickets"
      end
   
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
